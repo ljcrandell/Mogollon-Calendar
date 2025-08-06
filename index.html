@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOUSD Events</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#dc2626">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="HOUSD Events">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='32' height='32' rx='8' fill='%23dc2626'/%3E%3Cpath d='M8 10h4v12H8zm6 0h4v12h-4zm6 0h4v12h-4z' fill='white'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='180' height='180' rx='40' fill='%23dc2626'/%3E%3Cpath d='M45 56h22v68H45zm34 0h22v68H79zm34 0h22v68h-22z' fill='white'/%3E%3C/svg%3E">
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkhPVVNEIEV2ZW50cyIsCiAgInNob3J0X25hbWUiOiAiSE9VU0QiLAogICJkZXNjcmlwdGlvbiI6ICJRdWljayBhY2Nlc3MgdG8gSE9VU0QgRXZlbnRzIiwKICAic3RhcnRfdXJsIjogIi8iLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiNmZmZmZmYiLAogICJ0aGVtZV9jb2xvciI6ICIjMjU2M2ViIiwKICAiaWNvbnMiOiBbCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCM2FXUjBhRDBpTVRnd0lpQm9aV2xuYUhROUlqRTRNQ0lpSUhacFpYZENiM2c5SWpBZ01DQXhPREFnTVRnd0lpQm1hV3hzUFNKdWIyNWxJaUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lQZ285Y21WamRDQjNhV1IwYUQwaU1UZ3dJaUJvWldsbmFIUTlJakU0TUNJS0lISjRQU0kwTUNJZ1ptbHNiRDBpSXpJMU5qTmxZaUl2UGdvOGNHRjBhQ0JrUFNKTk5EVWdOVFpvTWpKMk5qaElORFY2YlRNMElEQm9NakoyTmpob0xUSXllbTB6TkNBd2FESXlkakenYZVtLXZzUEEgMzI3Ig==","192x192","image/png"},
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEyIiBmaWxsPSIjMjU2M2ViIi8+CjxwYXRoIGQ9Ik0xMjggMTYwaDY0djE5MmgtNjR6bTk2IDBoNjR2MTkyaC02NHptOTYgMGg2NHYxOTJoLTY0eiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "orientation": "portrait",
+  "categories": ["utilities"]
+}">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #dc2626 100%);
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 400px;
+            width: 100%;
+        }
+        
+        .icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(220, 38, 38, 0.3);
+            padding: 10px;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+        
+        .launch-btn {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            border: 2px solid rgba(220, 38, 38, 0.5);
+            color: white;
+            font-size: 1.2rem;
+            padding: 16px 32px;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+        }
+        
+        .launch-btn:hover {
+            background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+            border-color: rgba(220, 38, 38, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
+        }
+        
+        .launch-btn:active {
+            transform: translateY(0);
+        }
+        
+        .status {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .loading {
+            display: none;
+            margin-top: 20px;
+        }
+        
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .install-prompt {
+            margin-top: 30px;
+            padding: 15px;
+            background: rgba(31, 41, 55, 0.8);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(75, 85, 99, 0.5);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">
+            <img src="/logo.png" alt="Mogollon Mustangs" style="width: 70px; height: 70px; object-fit: contain; border-radius: 8px;" id="logoImg">
+        </div>
+        
+        <h1>Mogollon Mustangs</h1>
+        <p class="subtitle">HOUSD Events Portal</p>
+        
+        <a href="#" class="launch-btn" id="launchBtn" onclick="launchApp()">
+            Launch Events
+        </a>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            Redirecting to events...
+        </div>
+        
+        <div class="status" id="status">
+            Ready to launch
+        </div>
+        
+        <div class="install-prompt">
+            <strong>💡 Install as App:</strong><br>
+            On iOS: Tap Share → "Add to Home Screen"<br>
+            On Android: Tap menu → "Add to Home screen" or "Install app"
+        </div>
+    </div>
+
+    <script>
+        const TARGET_URL = 'https://events.dudesolutions.com/HOUSD';
+        
+        function launchApp() {
+            const loadingEl = document.getElementById('loading');
+            const statusEl = document.getElementById('status');
+            const btnEl = document.getElementById('launchBtn');
+            
+            // Show loading state
+            loadingEl.style.display = 'block';
+            statusEl.textContent = 'Opening HOUSD Events...';
+            btnEl.style.opacity = '0.7';
+            btnEl.style.pointerEvents = 'none';
+            
+            // Force open in new window/tab to bypass Claude.ai navigation
+            setTimeout(() => {
+                window.open(TARGET_URL, '_blank', 'noopener,noreferrer');
+                
+                // Reset UI after opening
+                setTimeout(() => {
+                    loadingEl.style.display = 'none';
+                    statusEl.textContent = 'Ready to launch';
+                    btnEl.style.opacity = '1';
+                    btnEl.style.pointerEvents = 'auto';
+                }, 1000);
+            }, 300);
+        }
+        
+        // Auto-redirect option (uncomment if you want immediate redirect)
+        // setTimeout(() => {
+        //     window.location.href = TARGET_URL;
+        // }, 2000);
+        
+        // Service Worker for PWA functionality
+        if ('serviceWorker' in navigator) {
+            const swCode = `
+                self.addEventListener('install', event => {
+                    event.waitUntil(self.skipWaiting());
+                });
+
+                self.addEventListener('activate', event => {
+                    event.waitUntil(self.clients.claim());
+                });
+
+                self.addEventListener('fetch', event => {
+                    // Pass-through for all requests
+                    event.respondWith(fetch(event.request));
+                });
+            `;
+            
+            const swBlob = new Blob([swCode], { type: 'application/javascript' });
+            const swURL = URL.createObjectURL(swBlob);
+            
+            navigator.serviceWorker.register(swURL)
+                .then(() => console.log('Service Worker registered'))
+                .catch(err => console.log('Service Worker registration failed:', err));
+        }
+    </script>
+</body>
+</html>
