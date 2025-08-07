@@ -138,7 +138,7 @@
         <p class="subtitle">HOUSD Events Portal</p>
         
         <a href="#" class="launch-btn" id="launchBtn" onclick="showInstallMessage()">
- Launch Events
+            Launch Calendar
         </a>
  
         <div class="loading" id="loading" style="display: none;">
@@ -147,14 +147,19 @@
  Redirecting to events...
         </div>
  
-        <div class="status" id="status">
+        <div class="status" id="status" style="display: block;">
  Ready to launch
         </div>
     </div>
 
     <script>
         const TARGET_URL = 'https://events.dudesolutions.com/HOUSD';
-        
+
+        // Check if the page is running in standalone mode (as a PWA)
+        if (window.matchMedia('(display-mode: standalone)').matches || navigator.standalone) {
+            window.location.href = TARGET_URL;
+        }
+
         // Service Worker for PWA functionality
         if ('serviceWorker' in navigator) {
             const swCode = `
@@ -181,11 +186,10 @@
         }
  
         function showInstallMessage() {
-            // This function was intended to show an install message.
-            // As the goal is to redirect, this function is now unused
-            // or can be repurposed to directly launch the URL.
-            launchApp(); // Call the function to launch the app/website
+            // This function is now called when the button is clicked in a regular browser context
+            launchApp();
         }
+
  
         function launchApp() {
             const loadingEl = document.getElementById('loading');
@@ -199,7 +203,7 @@
             btnEl.style.pointerEvents = 'none';
  
             // Redirect to the target URL
-            window.open(TARGET_URL, '_blank', 'noopener,noreferrer');
+            window.location.href = TARGET_URL; // Redirect in the current window/tab
         }
     </script>
 </body>
