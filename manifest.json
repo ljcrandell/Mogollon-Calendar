@@ -1,6 +1,6 @@
 {
   "name": "MHS Events",
-  "short_name": "MHS",
+  "short_name": "HOUSD",
   "icons": [
     {
       "src": "logo.png",
@@ -16,5 +16,4 @@
   "theme_color": "#808080",
   "background_color": "#808080",
   "display": "standalone"
-
 }
